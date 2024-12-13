@@ -458,3 +458,16 @@ function createEvent(event) {
 };
 
 document.getElementById("CreateEventBtn").addEventListener("click", createEvent)
+
+// show dialog for creating event when hover on the plus sign icon
+const newEventLink = document.getElementById("squarePlusIcon");
+const plus_icon = document.getElementById("plusIcon");
+
+newEventLink.addEventListener("mouseover", function(){
+    document.getElementById("plusIcon").classList.remove("d-none");
+});
+
+newEventLink.addEventListener("mouseout", function(){
+    document.getElementById("plusIcon").classList.add("d-none");
+});
+
