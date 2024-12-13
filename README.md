@@ -7,7 +7,7 @@
 1. **Navigate to the Project Root**
 
    ```bash
-   cd termproject-team-4
+   cd SCSU-Gather
    ```
 
 2. **Install Packages**
