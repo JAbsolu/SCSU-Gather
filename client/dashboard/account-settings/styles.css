@@ -1,0 +1,157 @@
+/* Global Styles */
+body {
+    font-family: "Forum", serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for Account Settings */
+.account-settings-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h2 {
+    color: #1B224E;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #1B224E;
+    color: #F5C446;
+    font-weight: bold;
+    padding: 0.75rem;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.form-check-input {
+    margin-left: 1.5rem;
+}
+
+.form-select {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Buttons */
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 0.5rem 1.25rem;
+    text-decoration: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+    color: #ffffff;
+}
+
+/* Manage Blocked Users Button */
+.btn-secondary {
+    background-color: #1B224E;
+    border-color: #1B224E;
+    color: #F5C446;
+    border-radius: 5px;
+    padding: 0.5rem 1.25rem;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: #d4a537;
+    border-color: #d4a537;
+    color: #1B224E;
+}
+
+/* Form Styling */
+.form-control {
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;
+    box-shadow: none;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+}
+
+.form-control:focus {
+    border-color: #F5C446;
+    box-shadow: 0 0 0 0.25rem rgba(245, 196, 70, 0.25);
+}
+
+/* Modal Styling */
+.modal-content .btn-primary {
+    background-color: #1B224E;
+    border-color: #1B224E;
+    color: #F5C446;
+}
+
+.modal-header {
+    background-color: #1B224E;
+    color: #F5C446;
+}
+
+.modal-body {
+    background-color: #fff;
+}
+
+.modal-dialog {
+    max-width: 600px;
+}
+
+/* Dropdown Styling */
+.dropdown-menu {
+    background-color: #1B224E;
+    color: #F5C446;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #F5C446;
+}
+
+.dropdown-menu .dropdown-item:hover {
+}
+
+/* Card Margin and Padding Adjustments */
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Specific Styling for Forms and Input Fields in Account Settings */
+.form-label {
+    color: #343a40;
+}
+
+.form-text {
+    color: #6c757d;
+}
+
+/* Content Centering and Alignment */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.nav-link.active {
+    background-color: #F5C446;
+    color: #1B224E;
+}
+

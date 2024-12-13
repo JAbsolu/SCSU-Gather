@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>SCSU Gather - Account Settings</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="../styles.css">
+      <link rel="stylesheet" href="styles.css">
+      <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js" async></script>
+   </head>
+   <body class="forum-regular">
+      <div class="dropdown position-absolute top-0 end-0 p-3 mt-2">
+         <button class="btn btn-secondary dropdown-toggle" type="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+         <i class="bi bi-gear"></i> Settings
+         </button>
+         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
+            <li><a class="dropdown-item" href="../profile/index.html">Profile</a></li>
+            <li><a class="dropdown-item" href="../account-settings/index.html">Account Settings</a></li>
+            <li><a class="dropdown-item" href="../privacy/index.html">Privacy</a></li>
+            <li><a class="dropdown-item" href="#">Help & Support</a></li>
+            <li class="nav-item"><a class="dropdown-item signout">Sign out</a></li>
+         </ul>
+      </div>
+      <!-- Sidebar -->
+      <div class="d-flex">
+         <nav class="sidebar text-light p-3">
+            <h2 class="text-light">SCSU GATHER</h2>
+            <div id="userName" class="mt-4"></div>
+            <hr>
+            <ul class="nav flex-column mt-4">
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../index.html">Dashboard</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="event-management.html">Event Management</a>
+               </li>
+               <hr>
+               <li class="nav-item">
+                  <a class="nav-link text-light text-start signout" id="signout" href="#">Sign out</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="container-fluid p-4" id="dashboard-content">
+            <h2 class="text-center mb-4">Privacy Settings</h2>
+            <!-- Data Sharing Preferences -->
+            <div class="card mb-4">
+               <div class="card-header">
+                  <h5>Data Sharing Preferences</h5>
+               </div>
+               <div class="card-body">
+                  <p>Control over what data is shared with third parties.</p>
+                  <div class="form-check">
+                     <input class="form-check-input" type="checkbox" value="" id="dataSharing">
+                     <label class="form-check-label" for="dataSharing">
+                     Share data with third parties
+                     </label>
+                  </div>
+               </div>
+            </div>
+            <!-- Ad Preferences -->
+            <div class="card mb-4">
+               <div class="card-header">
+                  <h5>Ad Preferences</h5>
+               </div>
+               <div class="card-body">
+                  <p>Manage targeted advertising settings.</p>
+                  <div class="form-check">
+                     <input class="form-check-input" type="checkbox" value="" id="adPreferences">
+                     <label class="form-check-label" for="adPreferences">
+                     Enable targeted ads
+                     </label>
+                  </div>
+               </div>
+            </div>
+            <!-- Tracking Settings -->
+            <div class="card mb-4">
+               <div class="card-header">
+                  <h5>Tracking Settings</h5>
+               </div>
+               <div class="card-body">
+                  <p>Enable/disable cookies, location tracking, and other tracking mechanisms.</p>
+                  <div class="form-check">
+                     <input class="form-check-input" type="checkbox" value="" id="cookiesTracking">
+                     <label class="form-check-label" for="cookiesTracking">
+                     Enable cookies and tracking
+                     </label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input" type="checkbox" value="" id="locationTracking">
+                     <label class="form-check-label" for="locationTracking">
+                     Enable location tracking
+                     </label>
+                  </div>
+               </div>
+            </div>
+            <!-- Content Visibility -->
+            <div class="card mb-4">
+               <div class="card-header">
+                  <h5>Privacy Settings for Content Visibility</h5>
+               </div>
+               <div class="card-body">
+                  <p>Who can see your posts, photos, or other shared content?</p>
+                  <select class="form-select" id="contentVisibility">
+                     <option value="public">Public</option>
+                     <option value="friends">Friends</option>
+                     <option value="private">Private</option>
+                  </select>
+               </div>
+            </div>
+            <!-- Data Retention Settings -->
+            <div class="card mb-4">
+               <div class="card-header">
+                  <h5>Data Retention Settings</h5>
+               </div>
+               <div class="card-body">
+                  <p>How long your data is stored by the platform?</p>
+                  <select class="form-select" id="dataRetention">
+                     <option value="1-month">1 Month</option>
+                     <option value="6-months">6 Months</option>
+                     <option value="1-year">1 Year</option>
+                     <option value="forever">Forever</option>
+                  </select>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="../script.js"></script>
+   </body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>SCSU Gather - Account Settings</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="../styles.css">
+      <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js" async></script>
+   </head>
+   <body class="forum-regular">
+      <div class="dropdown position-absolute top-0 end-0 p-3 mt-2">
+         <button class="btn btn-secondary dropdown-toggle" type="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+         <i class="bi bi-gear"></i> Settings
+         </button>
+         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
+            <li><a class="dropdown-item" href="../profile/index.html">Profile</a></li>
+            <li><a class="dropdown-item" href="index.html">Account Settings</a></li>
+            <li><a class="dropdown-item" href="../privacy/index.html">Privacy</a></li>
+            <li><a class="dropdown-item" href="#">Help & Support</a></li>
+            <li class="nav-item"><a class="dropdown-item signout">Sign out</a></li>
+         </ul>
+      </div>
+      <!-- Sidebar -->
+      <div class="d-flex">
+         <nav class="sidebar text-white p-3">
+            <h2>SCSU GATHER</h2>
+            <div id="userName" class="mt-4"></div>
+            <hr>
+            <ul class="nav flex-column mt-4">
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../index.html">Dashboard</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link text-white" href="../event-management.html">Event Management</a>
+               </li>
+               <hr>
+               <li class="nav-item">
+                  <a class="nav-link text-light text-start signout" id="signout" href="#">Sign out</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="container-fluid p-4" id="dashboard-content">
+            <h2 class="text-start mb-4">Account Settings</h2>
+            <!-- Personal Information Section -->
+            <div class="card mb-4">
+               <div class="card-header">
+                  <h5>Personal Information</h5>
+               </div>
+               <div class="card-body">
+                  <p>Update your name, email, and other personal details.</p>
+                  <form id="personalInformationForm">
+                     <div class="mb-3">
+                        <label for="firstName" class="form-label">First name</label>
+                        <div class="position-relative">
+                           <input type="text" class="form-control" id="firstName" placeholder="John" disabled>
+                           <i class="bi bi-pencil position-absolute top-50 end-0 translate-middle-y me-2 text-muted pencilIcon" style="cursor: pointer;"></i>
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                        <label for="lastName" class="form-label">Last name</label>
+                        <div class="position-relative">
+                           <input type="text" class="form-control" id="lastName" placeholder="Doe" disabled>
+                           <i class="bi bi-pencil position-absolute top-50 end-0 translate-middle-y me-2 text-muted pencilIcon" style="cursor: pointer;"></i>
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="position-relative">
+                           <input type="email" class="form-control" id="email" placeholder="john.doe@domain.com" disabled>
+                           <i class="bi bi-pencil position-absolute top-50 end-0 translate-middle-y me-2 text-muted pencilIcon" style="cursor: pointer;"></i>
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                        <label for="userType" class="form-label">User Type</label>
+                        <div class="position-relative">
+                           <input type="text" class="form-control" id="userType" placeholder="Student" disabled>
+                           <i class="bi bi-pencil position-absolute top-50 end-0 translate-middle-y me-2 text-muted pencilIcon" style="cursor: pointer;"></i>
+                        </div>
+                     </div>
+                     <button type="submit" class="btn btn-primary" id="personalInfoBtn">Save Changes</button>
+                  </form>
+               </div>
+            </div>
+            <!-- Change Password Section -->
+            <div class="card mb-4">
+               <div class="card-header">
+                  <h5>Change Password</h5>
+               </div>
+               <div class="card-body">
+                  <p>Update your password to keep your account secure.</p>
+                  <form id="updatePasswordForm">
+                     <div class="mb-3">
+                        <label for="currentPassword" class="form-label">Current Password</label>
+                        <input type="password" class="form-control" id="currentPassword" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="newPassword" class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="newPassword" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                     </div>
+                     <button type="submit" class="btn btn-primary" id="changePassword">Change Password</button>
+                  </form>
+                  <p id="formMessage"></p>
+               </div>
+            </div>
+            <!-- Account Deactivation Section -->
+            <div class="card mb-4">
+               <div class="card-header">
+                  <h5>Deactivate Account</h5>
+               </div>
+               <div class="card-body">
+                  <p>If you want to deactivate your account, please click below.</p>
+                  <button class="btn btn-danger" id="deactivate-account">Deactivate Account</button>
+               </div>
+            </div>
+            <!-- Deactivate acct modal -->
+            <div class="modal" tabindex="-1" id="deactivateAccountModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Confirm Account Deactivation</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure you want to deactivate your account?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary text-light btn-danger" id="deactivateAccount" style="width: 4em;">Yes</button>
+                      <button type="button" class="btn btn-primary text-light" data-bs-dismiss="modal" style="width: 4em;">No</button>
+                    </div>
+                    <p id="DeactivateAcctError" class="text-danger mt-0 ms-3 text-start"></p>
+                    
+                  </div>
+                </div>
+              </div>
+         </div>
+      </div>
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="script.js"></script>
+      <script src="../script.js"></script>
+   </body>
+</html>

@@ -1,0 +1,210 @@
+/* All */
+* { font-size: 12pt; }
+
+/* Google font */
+.forum-regular {
+  font-family: "Forum", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* General Styling */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-color: #f4f4f9; */
+  background-color: #1B224E;
+}
+
+.navbar {
+  background-color: #1B224E !important;
+}
+
+.bg-dark-blue {
+  background-color: #1B224E;
+}
+
+/* Landing Container Styling */
+.landing-container {
+  min-height: 37em;
+  background-image: url('./img/scsu.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  text-align: center;
+  padding-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.landing-container p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.landing-container .btn-secondary {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Features Section Styling */
+.features-section {
+  background-color: #1B224E;
+  padding: 3em 0;
+  color: #FFFFFF;
+}
+
+.feature-card {
+  background-color: #FFFFFF;
+  color: #1B224E;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  min-height: 8em;
+}
+
+.feature-card h4 {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Authentication Section Styling */
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5C446;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.auth-section {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 2em;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.auth-section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1B224E;
+  margin-bottom: 1em;
+  text-align: center;
+  width: 100%;
+}
+
+#signinForm, #signupForm {
+  width: 100%;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #1B224E;
+  border-color: #1B224E;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #333966;
+  border-color: #333966;
+}
+
+.btn-secondary {
+  background-color: #F5C446;
+  border-color: #F5C446;
+  color: #1B224E;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.75rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #d4a537;
+  border-color: #d4a537;
+}
+
+/* Link Styling in Forms */
+.auth-section a {
+  color: #1B224E;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-section a:hover {
+  color: #333966;
+  text-decoration: underline;
+}
+
+#signupForm {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Animation for Form Transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

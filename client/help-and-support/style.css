@@ -1,0 +1,152 @@
+
+/* All */
+* { font-size: 12pt; }
+
+/* Google font */
+.forum-regular {
+  font-family: "Forum", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*  bg dark blue */
+.bg-dark-blue {
+  background-color: #1B224E;
+}
+
+.bg-orange {
+  background-color: #F5C446;
+}
+
+body {
+  height: 100vh;
+}
+
+/* Landing Container Styling */
+.landing-container {
+  min-height: 37em;
+  background-image: url('./img/scsu.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  text-align: center;
+  padding-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.landing-container p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.landing-container .btn-secondary {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Features Section Styling */
+.features-section {
+  background-color: #1B224E;
+  padding: 3em 0;
+  color: #FFFFFF;
+}
+
+.feature-card {
+  background-color: #FFFFFF;
+  color: #1B224E;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  min-height: 8em;
+}
+
+.feature-card h4 {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #1B224E;
+  border-color: #1B224E;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #333966;
+  border-color: #333966;
+}
+
+.btn-secondary {
+  background-color: #F5C446;
+  border-color: #F5C446;
+  color: #1B224E;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.75rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #d4a537;
+  border-color: #d4a537;
+}
+
+/* Link Styling in Forms */
+.auth-section a {
+  color: #1B224E;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-section a:hover {
+  color: #333966;
+  text-decoration: underline;
+}
+
+#signupForm {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Animation for Form Transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

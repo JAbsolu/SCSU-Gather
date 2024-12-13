@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCSU Gather Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" async></script>
+    <!-- Add Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="forum-regular">
+    <!-- Settings Dropdown -->
+    <div class="dropdown position-absolute top-0 end-0 p-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-gear"></i> Settings
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
+            <li><a class="dropdown-item" href="profile/index.html">Profile</a></li>
+            <li><a class="dropdown-item" href="account-settings/index.html">Account Settings</a></li>
+            <li><a class="dropdown-item" href="privacy/index.html">Privacy</a></li>
+            <li><a class="dropdown-item" href="">Help & Support</a></li>
+            <li class="nav-item"><a class="dropdown-item signout">Sign out</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="d-flex">
+        <nav class="sidebar text-white p-3">
+            <h2>SCSU GATHER</h2>
+            <div id="userName" class="mt-4"></div>
+            <hr>
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="event-management.html">Event Management</a>
+                </li>
+                <hr>
+                <li class="nav-item">
+                    <button class="nav-link text-white text-start signout" id="signout">Sign out</button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container-fluid p-3" id="dashboard-content">
+            <h3 class="mb-3">Dashboard Overview</h3>
+            <div class="row">
+                <!-- Upcoming Events -->
+                <div class="col-md-6 mb-2">
+                    <div class="card">
+                        <div class="card-header main-card-header d-flex justify-content-between" >
+                           <h5>Upcoming Events</h5>
+                            <a class="text-decoration-none createNewEventLink" href="#" onclick="openCreateEventModal()" style="color: #F5C446;">
+                                <!-- New Event -->
+                                <i class="bi bi-plus-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="list-group list-group-flush upcoming-events" id="event-list">
+                        <!-- Events will be dynamically added here -->
+                    </div>
+                    <hr class="mt-1">
+                </div>
+
+                <!-- Analytics Overview -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Event Analytics</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <p>Events: <span id="total-events">0</span></p>
+                            </div>
+                            <hr class="mt-0 mb-2">
+                            <div class="mt-2">
+                                <h4 class="eventInfo">Event Analytics</h4>
+                                <canvas id="doughnutChart"></canvas>
+                                <canvas id="doughnutChart2" class="d-none"></canvas>
+                            </div>
+                            <hr class="mt-4 mb-4">
+                            <h4>Events & Attendees</h4>
+                            <div class="barChart">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Management Actions -->
+            <div class="d-flex mt-1 gap-3">
+                <!-- Event Creation Button -->
+                <button class="btn btn-primary" onclick="openCreateEventModal()">Create New Event</button>
+                <!-- Export Attendees Buttons -->
+                <button class="btn btn-secondary" onclick="exportAttendees('csv')">Export Attendees (CSV)</button>
+                <button class="btn btn-secondary" onclick="exportAttendees('excel')">Export Attendees (Excel)</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- modal -->
+    <div class="modal fade" id="createEventModal" tabindex="-1" aria-labelledby="createEventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createEventModalLabel">Create New Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createEventForm">
+                        <div class="mb-3">
+                            <label for="eventAdmin" class="form-label" hidden>Event Admin</label>
+                            <input type="text" class="form-control mb-3" id="eventAdmin" required disabled hidden>
+                            <label for="eventName" class="form-label">Event Name</label>
+                            <input type="text" class="form-control" id="eventName" required dos>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="eventDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventTime" class="form-label">Time</label>
+                            <input type="time" class="form-control" id="eventTime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventLocation" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="eventLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventCapacity" class="form-label">Capacity</label>
+                            <input type="number" class="form-control" id="eventCapacity" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary text-light" id="CreateEventBtn">Create Event</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- edit event modal -->
+    <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="editEventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editEventModalLabel">Edit Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editEventForm">
+                        <div class="mb-3">
+                            <label for="editEventAdmin" class="form-label" hidden>Event Admin</label>
+                            <input type="text" class="form-control mb-3" id="editEventAdmin" required disabled hidden>
+                            <label for="editEventName" class="form-label">Event Name</label>
+                            <input type="text" class="form-control" id="editEventName" required dos>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEventDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="editEventDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEventTime" class="form-label">Time</label>
+                            <input type="time" class="form-control" id="editEventTime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEventLocation" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="editEventLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEventCapacity" class="form-label">Capacity</label>
+                            <input type="number" class="form-control" id="editEventCapacity" required>
+                        </div>
+                        <!-- <button type="submit" class="btn btn-primary text-light">Save Changes</button> -->
+                        <button type="submit" class="btn btn-primary text-light" id="editEventBtn">Edit Event</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="chart.js"></script>
+</body>
+</html>
+

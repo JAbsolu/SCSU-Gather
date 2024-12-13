@@ -1,0 +1,26 @@
+.createNewEventLink:hover {
+  text-decoration: underline !important;
+  color: #FFFFFF !important;
+}
+
+.attendeesModalBtn {
+  text-decoration: none;
+  color: #1B224E;
+  font-weight: bold;
+}
+
+.attendeesModalBtn:hover {
+  text-decoration: underline !important;
+  color: #F5C446 !important;
+}
+
+.register {
+  text-decoration: none;
+  color: #1B224E;
+  font-weight: bold;
+}
+
+.register:hover {
+  text-decoration: underline;
+  color: #F5C446;
+}
