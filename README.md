@@ -109,3 +109,6 @@
 
 ### Account Settings | Update PWD Deactivate Account
 ![alt text](image-6.png)# SCSU-Gather
+
+### Profile
+![alt text](image-7.png)
