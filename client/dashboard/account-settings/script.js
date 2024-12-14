@@ -31,7 +31,7 @@ const setFormData = (user) => {
 document.querySelectorAll(".signout").forEach((btn) => {
   btn.addEventListener("click", function() {
       localStorage.removeItem("user");
-      window.location.href = "../auth.html";
+      window.location.href = "../../auth.html";
   });  
 })
 

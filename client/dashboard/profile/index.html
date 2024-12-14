@@ -3,146 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Settings</title>
+    <title>Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="forum-regular">
-<nav class="navbar bg-dark-blue navbar-expand-lg">
-       <div class="container-fluid">
-           <a class="navbar-brand text-light" href="#">SCSU GATHER</a>
-           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-           </button>
-           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-               <ul class="navbar-nav ms-auto">
-                   <li class="nav-item">
-                       <a class="nav-link text-light" href="../index.html">Home</a>
-                   </li>
-               </ul>
-           </div>
-       </div>
-    </nav>
-    <!-- Profile Settings -->
-    <div class="container profile-settings">
-        <h2 class="text-center mb-4">Profile Settings</h2>
-        
-        <!-- Profile Information -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5>Profile Information</h5>
+    <!-- Settings Dropdown -->
+    <div class="dropdown position-absolute top-0 end-0 pt-1 pe-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-gear"></i> Settings
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="../account-settings/index.html">Account Settings</a></li>
+            <li><a class="dropdown-item" href="../privacy/index.html">Privacy</a></li>
+            <li class="nav-item"><a class="dropdown-item signout">Sign out</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="d-flex">
+        <nav class="sidebar text-white px-1 py-2" style="background-color: #1B224E; min-height: 100vh; width: 20em;">
+            <div class="rounded shadow px-2 pt-2 pb-3" style="background: #151c40;">
+                <h2 class="h2 px-2">
+                    <span class="h2 fw-bolder" style="color: #F5C446;">SCSU</span>
+                   <span class="h2 fw-bolder">GATHER</span></h2>
             </div>
-            <div class="card-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="displayName" class="form-label">Display Name</label>
-                        <input type="text" class="form-control" id="displayName" placeholder="Enter your display name">
+
+            <div class="rounded shadow pt-2 pb-3 px-2 mt-1" style="background: #151c40;">
+                <ul class="nav flex-column mt-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-light px-1" href="../index.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light px-1" href="../event-management.html">Event Management</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container mt-5">
+            <div class="profile-header text-center mb-4">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture mb-3">
+                <div id="userName" class="d-flex flex-column justify-content-start">...</div>
+                <!-- <p class="student_id">Software Developer | Event Organizer</p> -->
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bolder">Contact Information</h5>
+                            <hr>
+                            <p class="card-text" id="name"></p>
+                            <p class="card-text" id="email"></p>
+                            <p class="card-text"><strong>Phone:</strong> (123) 456-7890</p>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="bio" class="form-label">Bio</label>
-                        <textarea class="form-control" id="bio" rows="3" placeholder="Enter your bio"></textarea>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bolder">Account Details</h5>
+                            <hr>
+                            <p class="card-text" id="userType"></p>
+                            <p class="card-text"><strong>Year:</strong> Senior</p>
+                            <p class="card-text"><strong>Member Since: </strong>November 2024</p>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="dob" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="dob">
-                    </div>
-                    <div class="mb-3">
-                        <label for="gender" class="form-label">Gender</label>
-                        <select class="form-select" id="gender">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                            <option value="preferNotToSay">Prefer not to say</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Profile Picture -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5>Profile Picture</h5>
-            </div>
-            <div class="card-body">
-                <p>Upload or change your profile picture.</p>
-                <div class="mb-3">
-                    <input class="form-control" type="file" id="profilePicture">
                 </div>
-                <button class="btn btn-secondary">Save Profile Picture</button>
             </div>
-        </div>
 
-        <!-- Cover Photo -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5>Cover Photo</h5>
-            </div>
-            <div class="card-body">
-                <p>Customize your background or header image.</p>
-                <div class="mb-3">
-                    <input class="form-control" type="file" id="coverPhoto">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">About Me</h5>
+                    <p class="card-text" id="userIntro"></p>
                 </div>
-                <button class="btn btn-secondary">Save Cover Photo</button>
-            </div>
-        </div>
-
-        <!-- Status or Bio -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5>Status or Bio</h5>
-            </div>
-            <div class="card-body">
-                <p>Set a brief description or tagline that appears on your profile.</p>
-                <div class="mb-3">
-                    <textarea class="form-control" id="status" rows="3" placeholder="Enter your status or tagline"></textarea>
-                </div>
-                <button class="btn btn-secondary">Save Status</button>
-            </div>
-        </div>
-
-        <!-- Activity and Achievements -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5>Activity and Achievements</h5>
-            </div>
-            <div class="card-body">
-                <p>Showcase recent activity, accomplishments, or badges earned.</p>
-                <textarea class="form-control" id="activityAchievements" rows="3" placeholder="Add your recent activity or achievements"></textarea>
-                <button class="btn btn-secondary mt-3">Save Activity</button>
-            </div>
-        </div>
-
-        <!-- Friends, Followers, or Connections -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5>Friends, Followers, or Connections</h5>
-            </div>
-            <div class="card-body">
-                <p>Manage lists of followers, friends, or professional connections.</p>
-                <button class="btn btn-secondary" id="manageConnections">Manage Connections</button>
-            </div>
-        </div>
-
-        <!-- Custom Links -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5>Custom Links</h5>
-            </div>
-            <div class="card-body">
-                <p>Include personal or professional links (e.g., website, social media).</p>
-                <div class="mb-3">
-                    <label for="customLinks" class="form-label">Custom Links</label>
-                    <input type="url" class="form-control" id="customLinks" placeholder="Add a custom link">
-                </div>
-                <button class="btn btn-secondary">Add Link</button>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -9,7 +9,6 @@ const getUserInfo = () => {
       if (xttp.readyState === 4) {
         if (xttp.status === 200) {
           const user = JSON.parse(xttp.responseText);
-          localStorage.setItem("user", JSON.stringify(user));
           console.log("User info:", user);
           document.getElementById("userName").innerHTML = ` <h4>${user.firstname} ${user.lastname}</h4>
                                                             <p>${user.email_address} <br> ${user.user_type}</p>`;
